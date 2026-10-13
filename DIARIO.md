@@ -277,4 +277,9 @@ Formato por tarefa:
 - **Onde a IA errou / precisou de intervenção:** Na versão anterior dos handlers de adição e gerenciamento da fila, não havia previsão arquitetural para broadcast de WebSocket nas rotas HTTP REST, deixando a sincronização refém exclusiva de trocas de música e recarga manual da página (F5).
 - **O que foi feito / ajustado na mão:** Injeção de `wsHub` e `roomRepo` em `add.go`, `manage.go` e `main.go`, implementação de broadcasts com resolução de sala nos métodos `HandleAdd`, `HandleBatch`, `HandleRemove` e `HandleSwap`, remoção do bloqueio de autenticação no listener `queueUpdated$` em `app.ts`, disparo reativo em `search-modal.component.ts`, criação de testes unitários TDD em `add_test.go` e `manage_test.go`, e rebuild dos contêineres Docker `backend` e `frontend`.
 
+---
 
+### Tarefa 44: Inicialização do Repositório Git, Blindagem de Segredos e Publicação no GitHub
+- **O que a IA acertou:** Inicializou o repositório Git na branch principal `main`, configurou a remote origin apontando para `https://github.com/rpaschoaljr/Radio-comunitario.git`, checou e confirmou a blindagem de segurança para que arquivos sensíveis (como `.env`) fossem estritamente ignorados pelo `.gitignore`, gerou o commit inicial com toda a base do projeto e enviou com sucesso via push para a branch `main` do GitHub.
+- **Onde a IA errou / precisou de intervenção:** O repositório local ainda não possuía a pasta `.git` inicializada nem a branch remota vinculada, exigindo criação do commit inicial e resolução do fluxo de publicação.
+- **O que foi feito / ajustado na mão:** Execução de `git init`, definição da branch para `main`, configuração da remote origin, verificação do status com `git check-ignore -v .env`, commit inicial e `git push -u origin main`.
